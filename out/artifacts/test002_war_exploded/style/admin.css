@@ -1,0 +1,66 @@
+body{
+  overflow: hidden;
+}
+.bakcgroudPic {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+.backgroundPic{
+   -webkit-filter: blur(5px);
+}
+.adminLogin{
+  padding-top: 30px;
+  padding-bottom: 50px;
+  /*float: left;*/
+  margin-top: 10%;
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  /*background: #fff;*/
+  background-color: rgba(255,255,255,0.5);
+  /*opacity: 0.5;*/
+  border-radius: 10px;
+}
+.inputUserName{
+  margin-top: 20px;
+  margin-left: 60px;
+  margin-bottom: 30px;
+  height: 30px;
+}
+.adminPassPicDiv{
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  border-right: 0;
+  float: left;
+  height: 40px;
+}
+.adminPassPic{
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 20px;
+}
+.adminNameInput{
+  height: 40px;
+  width: 200px;
+  padding-left: 10px;
+  line-height: 40px;
+  border: 1px solid #eaeaea;
+  border-left: 0;
+  font-size: 13pt;
+
+  outline: none;
+}
+.adminSubmit{
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 60px;
+  border: 1px solid #F9671E;
+  height: 40px;
+  width: 230px;
+  letter-spacing: 10px;
+  font-size: 14pt;
+  background-color: #F9671E;
+}
