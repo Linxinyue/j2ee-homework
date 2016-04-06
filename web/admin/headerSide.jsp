@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: sangzhenya
@@ -205,7 +206,7 @@
                 <img src="adminJS/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>User Name</p>
+                <p><s:property value="#session.currentAdmin.name"/></p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div><!-- /.user-panel -->
@@ -225,43 +226,120 @@
         <ul class="sidebar-menu">
             <li class="header">管理</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="admin/admin_index"> <i class="fa fa-globe"></i> <span>主页</span></a></li>
+            <s:if test="#session.currentIndex == 1">
+                <li class="active"><a href="admin/admin_index"> <i class="fa fa-globe"></i> <span>主页</span></a></li>
+            </s:if>
+            <s:else>
+                <li><a href="admin/admin_index"> <i class="fa fa-globe"></i> <span>主页</span></a></li>
+            </s:else>
+
+
+            <s:if test="#session.currentIndex == 2 || #session.currentIndex == 3 || #session.currentIndex == 4 || #session.currentIndex == 5">
+            <li class="treeview active">
+                </s:if>
+                <s:else>
             <li class="treeview">
+                </s:else>
                 <a href="admin/admin_article">
                     <i class="fa fa-file"></i>
                     <span>文章</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="admin/admin_article"><i class="fa  fa-home"></i>文章主页</a></li>
-                    <li><a href="admin/admin_articleAdd"><i class="fa  fa-plus"></i>添加文章</a></li>
-                    <li><a href="admin/admin_articleAdd"><i class="fa  fa-pencil"></i>修改文章</a></li>
-                    <li><a href="admin/admin_articleDel"><i class="fa  fa-trash"></i>删除文章</a></li>
+                    <s:if test="#session.currentIndex == 2">
+                        <li class="active treeview"><a href="admin/admin_article"><i class="fa  fa-home"></i>文章主页</a>
+                        </li>
+                    </s:if>
+                    <s:else>
+                        <li><a href="admin/admin_article"><i class="fa  fa-home"></i>文章主页</a></li>
+                    </s:else>
+                    <s:if test="#session.currentIndex == 3">
+                        <li class="active"><a href="admin/admin_articleAdd"><i class="fa  fa-plus"></i>添加文章</a></li>
+                    </s:if>
+                    <s:else>
+                        <li><a href="admin/admin_articleAdd"><i class="fa  fa-plus"></i>添加文章</a></li>
+                    </s:else>
+
+                    <s:if test="#session.currentIndex == 4">
+                        <li class="active"><a href="admin/admin_articleMod"><i class="fa  fa-pencil"></i>修改文章</a></li>
+                    </s:if>
+                    <s:else>
+                        <li><a href="admin/admin_articleMod"><i class="fa  fa-pencil"></i>修改文章</a></li>
+                    </s:else>
+
+                    <s:if test="#session.currentIndex == 5">
+                        <li class="active"><a href="admin/admin_articleDel"><i class="fa  fa-trash"></i>删除文章</a></li>
+                    </s:if>
+                    <s:else>
+                        <li><a href="admin/admin_articleDel"><i class="fa  fa-trash"></i>删除文章</a></li>
+                    </s:else>
                 </ul>
             </li>
 
+            <s:if test="#session.currentIndex == 6 || #session.currentIndex == 7 || #session.currentIndex == 8">
+            <li class="treeview active">
+                </s:if>
+                <s:else>
             <li class="treeview">
+                </s:else>
                 <a href="admin/admin_comment">
                     <i class="fa fa-commenting"></i>
                     <span>评论</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="admin/admin_comment"><i class="fa  fa-home"></i>评论主页</a></li>
-                    <li><a href="admin/admin_commentAdd"><i class="fa  fa-plus"></i>添加评论</a></li>
-                    <li><a href="admin/admin_commentDel"><i class="fa  fa-trash"></i>删除评论</a></li>
+                    <s:if test="#session.currentIndex == 6">
+                        <li class="active"><a href="admin/admin_comment"><i class="fa  fa-home"></i>评论主页</a></li>
+                    </s:if>
+                    <s:else>
+                        <li><a href="admin/admin_comment"><i class="fa  fa-home"></i>评论主页</a></li>
+                    </s:else>
+
+                    <s:if test="#session.currentIndex == 7">
+                        <li class="active"><a href="admin/admin_commentAdd"><i class="fa  fa-plus"></i>添加评论</a></li>
+                    </s:if>
+                    <s:else>
+                        <li><a href="admin/admin_commentAdd"><i class="fa  fa-plus"></i>添加评论</a></li>
+                    </s:else>
+
+                    <s:if test="#session.currentIndex == 8">
+                        <li class="active"><a href="admin/admin_commentDel"><i class="fa  fa-trash"></i>删除评论</a></li>
+                    </s:if>
+                    <s:else>
+                        <li><a href="admin/admin_commentDel"><i class="fa  fa-trash"></i>删除评论</a></li>
+                    </s:else>
+
+
                 </ul>
             </li>
 
+            <s:if test="#session.currentIndex == 9 || #session.currentIndex == 10">
+            <li class="treeview active">
+                </s:if>
+                <s:else>
             <li class="treeview">
+                </s:else>
                 <a href="admin/admin_index">
                     <i class="fa  fa-user"></i>
                     <span>用户</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="admin/admin_user"><i class="fa  fa-home"></i>用户主页</a></li>
-                    <li><a href="admin/admin_userDel"><i class="fa  fa-trash"></i>删除用户</a></li>
+
+                    <s:if test="#session.currentIndex == 9">
+                        <li class="active"><a href="admin/admin_user"><i class="fa  fa-home"></i>用户主页</a></li>
+                    </s:if>
+                    <s:else>
+                        <li><a href="admin/admin_user"><i class="fa  fa-home"></i>用户主页</a></li>
+                    </s:else>
+
+                    <s:if test="#session.currentIndex == 10">
+                        <li class="active"><a href="admin/admin_userDel"><i class="fa  fa-trash"></i>删除用户</a></li>
+                    </s:if>
+                    <s:else>
+                        <li><a href="admin/admin_userDel"><i class="fa  fa-trash"></i>删除用户</a></li>
+                    </s:else>
+
                 </ul>
             </li>
             <li class="header">联系</li>
@@ -281,4 +359,5 @@
         </ul><!-- /.sidebar-menu -->
 
     </div><!-- /.sidebar -->
-</div><!-- /.main-sidebar -->
+</div>
+<!-- /.main-sidebar -->

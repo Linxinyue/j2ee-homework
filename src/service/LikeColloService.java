@@ -12,6 +12,12 @@ import java.util.List;
  * Created by sangzhenya on 2016/4/1.
  */
 public class LikeColloService {
+
+    /**
+     * 给文章点赞
+     * @param user_id
+     * @param article_id
+     */
     public static void like(int user_id, int article_id){
         Session session = null;
         Transaction tx = null;
@@ -44,6 +50,12 @@ public class LikeColloService {
             HibernateUtil.closeSession();
         }
     }
+
+    /**
+     * 踩文章
+     * @param user_id
+     * @param article_id
+     */
     public static void dislike(int user_id, int article_id){
         Session session = null;
         Transaction tx = null;
@@ -77,6 +89,11 @@ public class LikeColloService {
         }
     }
 
+    /**
+     * 收藏文章
+     * @param user_id
+     * @param article_id
+     */
     public static void collo(int user_id, int article_id){
         Session session = null;
         Transaction tx = null;
@@ -110,6 +127,11 @@ public class LikeColloService {
         }
     }
 
+    /**
+     * 给评论点赞
+     * @param user_id
+     * @param comment_id
+     */
     public static void comment(int user_id, int comment_id){
 
 

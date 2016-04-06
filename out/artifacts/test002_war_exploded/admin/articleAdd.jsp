@@ -38,7 +38,7 @@
 <div class="wrapper">
 
 
-    <s:include value="headerSide.jsp"></s:include>
+    <s:include value="headerSide.jsp" />
 
     <div class="content-wrapper">
 
@@ -62,7 +62,7 @@
                 <div class="col-md-6 col-xs-12">
                     <div class="input-group">
                         <span class="input-group-addon">标题</span>
-                        <input type="text" class="form-control" placeholder="title">
+                        <input type="text" class="form-control" placeholder="title" id="title">
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                 <div class="col-md-3 col-xs-6">
                     <div class="input-group">
                         <span class="input-group-addon">作者</span>
-                        <input type="text" class="form-control" placeholder="author" >
+                        <input type="text" class="form-control" placeholder="author" id="author">
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-6">
@@ -80,7 +80,7 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
                             </div>
-                            <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                            <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask id="date">
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                 <div class="col-md-9 col-xs-12">
                     <div class="form-group">
                         <label>摘要</label>
-                        <textarea class="form-control" rows="3"  placeholder="Enter ..." ></textarea>
+                        <textarea class="form-control" rows="3"  placeholder="Enter ..."  id="abstracts"></textarea>
                     </div>
                 </div>
             </div>
@@ -97,29 +97,38 @@
                 <div class="col-md-9 col-xs-12">
                     <div class="form-group">
                         <label>文章</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." style="height: 130px;"></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." style="height: 130px;" id="content"></textarea>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-2 col-xs-6 col-md-offset-6">
+                <div class="col-md-1 col-xs-6 col-md-offset-7">
                     <div class="form-group">
-                        <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected">Alabama</option>
-                            <option>Alaska</option>
-                            <option>California</option>
-                            <option>Delaware</option>
-                            <option>Tennessee</option>
-                            <option>Texas</option>
-                            <option>Washington</option>
+                        <select class="form-control select2" style="width: 100%;" id="classification">
+                            <option value="1">热点</option>
+                            <option value="2">社会</option>
+                            <option value="3">娱乐</option>
+                            <option value="4">科技</option>
+                            <option value="6">财经</option>
+                            <option value="7">军事</option>
+                            <option value="8">国际</option>
+                            <option value="9">时尚</option>
+                            <option value="10">探索</option>
+                            <option value="11">美文</option>
+                            <option value="12">历史</option>
+                            <option value="13">故事</option>
+                            <option value="14">游戏</option>
                         </select>
                     </div><!-- /.form-group -->
                 </div>
                 <div class="col-md-1 col-xs-6">
                     <div class="form-group">
-                        <button type="button" class="btn btn-block btn-primary">提交</button>
+                        <button type="button" class="btn btn-block btn-primary" id="submit">提交</button>
                     </div><!-- /.form-group -->
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-md-offset-8" id="tips"></div>
             </div>
         </section>
 

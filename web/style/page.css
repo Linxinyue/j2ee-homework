@@ -266,3 +266,9 @@
 .getCount{
   float: right;
 }
+
+.commentTip{
+  float: right;
+  color: red;
+  margin-right: 10px;
+}

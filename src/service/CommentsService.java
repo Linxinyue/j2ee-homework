@@ -13,6 +13,15 @@ import java.util.List;
  * Created by sangz on 4/1/2016.
  */
 public class CommentsService {
+
+    /**
+     * 获取页面的评论
+     * @param pageNo
+     * @param pageSize
+     * @param articleId
+     * @param userId
+     * @return
+     */
     public static List<Object[]> getComments(int pageNo, int pageSize, int articleId, int userId){
         Session session = null;
         Transaction tx = null;
@@ -79,18 +88,15 @@ public class CommentsService {
         } finally {
             HibernateUtil.closeSession();
         }
-        /*for (Object[] object:commentRela){
-            System.out.println(object[0].toString());
-            System.out.println(object[1].toString());
-            System.out.println(object[2].toString());
-            System.out.println(object[3].toString());
-            System.out.println(object[4].toString());
-            System.out.println(object[5].toString());
-            System.out.println("-------------------------------");
-        }*/
+
         return commentRela;
     }
 
+    /**
+     * 获取页面评论的数量
+     * @param articleId
+     * @return
+     */
     public static int getCommentsCounts(int articleId){
         Session session = null;
         Transaction tx = null;

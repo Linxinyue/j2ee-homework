@@ -58,12 +58,47 @@
         </section>
 
         <section class="content" id="myCustom">
+            <div class="row">
+                <div class="col-md-2 col-xs-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">ID</span>
+                        <input type="text" class="form-control" placeholder="id" id="id">
+                    </div>
+                </div>
+                <div class="col-md-1 col-xs-2">
+                    <button type="button" class="btn btn-block btn-primary" id="check">查询</button>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-md-4 col-xs-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">Title</span>
+                        <input type="text" class="form-control" placeholder="title" id="title">
+                    </div>
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col-md-2 col-xs-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">CommentUserId</span>
+                        <input type="text" class="form-control" placeholder="author" id="userId">
+                    </div>
+                </div>
+                <div class="col-md-1 col-xs-2">
+                    <button type="button" class="btn btn-block btn-primary" id="checkUser">查询</button>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-md-4 col-xs-6">
+                    请检查标题是否正确后，再进行添加评论的操作！
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-3 col-xs-6">
                     <div class="input-group">
-                        <span class="input-group-addon">作者</span>
-                        <input type="text" class="form-control" placeholder="author" >
+                        <span class="input-group-addon">CommentUserName</span>
+                        <input type="text" class="form-control" placeholder="author" id="userName">
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-6">
@@ -72,7 +107,7 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
                             </div>
-                            <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                            <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask id="date">
                         </div>
                     </div>
                 </div>
@@ -82,14 +117,17 @@
                 <div class="col-md-9 col-xs-12">
                     <div class="form-group">
                         <label>内容</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." style="height: 100px;"></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." style="height: 100px;" id="content"></textarea>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-1 col-xs-6 col-md-offset-8">
+                <div class="col-md-2 col-xs-6 col-md-offset-6" id="tips">
+
+                </div>
+                <div class="col-md-1 col-xs-6 ">
                     <div class="form-group">
-                        <button type="button" class="btn btn-block btn-primary">提交</button>
+                        <button type="button" class="btn btn-block btn-primary" id="commentSUbmit">提交</button>
                     </div><!-- /.form-group -->
                 </div>
             </div>

@@ -13,7 +13,7 @@ $(function () {
                 function (data, status) {
                     // alert("数据：" + data + "\n状态：" + status);
                     if (status) {
-                        location.href = "userindex";
+                        location.href = "index.html";
                     }
                 });
         }
@@ -35,7 +35,7 @@ function submitNow(e) {
                 },
                 function (data, status) {
                     if (status) {
-                        location.href = "userindex";
+                        location.href = "index.html";
                     }
                 });
         }

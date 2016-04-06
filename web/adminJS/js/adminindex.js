@@ -1,4 +1,22 @@
 // 路径配置
+var myDate = new Date();
+
+if (myDate.getDay() == 0){
+  var days = new Array("周一","周二","周三","周四","周五","周六","周日");
+}else if(myDate.getDay() == 6){
+  var days = new Array("周日","周一","周二","周三","周四","周五","周六");
+}else if(myDate.getDay() == 5){
+  var days = new Array("周六","周日","周一","周二","周三","周四","周五");
+}else if(myDate.getDay() == 4){
+  var days = new Array("周五","周六","周日","周一","周二","周三","周四");
+}else if(myDate.getDay() == 3){
+  var days = new Array("周四","周五","周六","周日","周一","周二","周三");
+}else if(myDate.getDay() == 2){
+  var days = new Array("周三","周四","周五","周六","周日","周一","周二");
+}else if(myDate.getDay() == 1){
+  var days = new Array("周二","周三","周四","周五","周六","周日","周一");
+}
+
 require.config({
   paths: {
     echarts: 'http://echarts.baidu.com/build/dist'
@@ -26,7 +44,7 @@ require(
       xAxis: [{
         type: 'category',
         boundaryGap: false,
-        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+        data: [days[0], days[1], days[2], days[3], days[4], days[5], days[6]]
       }],
       yAxis: [{
         type: 'value',
@@ -34,7 +52,7 @@ require(
       series: [{
         name: '访问量',
         type: 'line',
-        data: [110, 110, 150, 130, 120, 103, 100],
+        data: [myCounts[6], myCounts[5], myCounts[4], myCounts[3], myCounts[2], myCounts[1], myCounts[0]],
         markPoint: {
           data: [{
             type: 'max',

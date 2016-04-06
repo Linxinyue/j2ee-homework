@@ -1,11 +1,14 @@
 package service;
 
+import adminservice.AdminCountService;
 import domain.*;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -39,6 +42,7 @@ public class PageService {
         } finally {
             HibernateUtil.closeSession();
         }
+        AdminCountService.readRecord(article);
         return article;
     }
 
@@ -138,17 +142,26 @@ public class PageService {
         }
     }
 
+    /**
+     * 发表评论
+     * @param userId
+     * @param articleId
+     * @param content
+     */
     public static void putComment(int userId, int articleId, String content){
         Session session = null;
         Transaction tx = null;
+        Calendar calendar = Calendar.getInstance();
+        Date date =calendar.getTime();
+        MyComment myComment = new MyComment();
         try {
             session = HibernateUtil.getSession();
             tx = session.beginTransaction();
 
-            MyComment myComment = new MyComment();
             myComment.setMyArticle(session.get(MyArticle.class,articleId));
             myComment.setMyUser(session.get(MyUser.class,userId));
             myComment.setContent(content);
+            myComment.setComent_date(date);
             session.save(myComment);
 
             tx.commit();
@@ -160,5 +173,6 @@ public class PageService {
         } finally {
             HibernateUtil.closeSession();
         }
+        AdminCountService.commentCount(myComment);
     }
 }

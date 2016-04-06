@@ -1,20 +1,14 @@
 package action;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.sun.deploy.net.HttpRequest;
 import domain.MyUser;
 import org.apache.struts2.ServletActionContext;
 import service.LoginAndRegisterService;
-import service.MyArticleService;
-import service.MyClassifcationService;
-import service.UserArticleService;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by sangzhenya on 2016/3/26.
@@ -51,7 +45,6 @@ public class LoginAction extends ActionSupport{
 
     public String logout(){
         httpSession.invalidate();
-//        System.out.println("logout");
         return "loginOut";
     }
 

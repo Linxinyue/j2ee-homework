@@ -1,7 +1,7 @@
 $(function () {
     $(".homedynamic").click(function () {
         if ($(this).text() == "首页") {
-            location.href = "news_index";
+            location.href = "index.html";
         } else {
             alert($(this).text());
         }
@@ -24,19 +24,19 @@ $(function () {
     $(".moreOption").click(function () {
         switch ($(this).text()){
             case "关于我们":
-                location.href = "more_about";
+                location.href = "media/about.html";
                 break;
             case "联系我们":
-                location.href = "more_contact";
+                location.href = "media/contact.html";
                 break;
             case "用户协议":
-                location.href = "more_agreenment";
+                location.href = "media/agreenment.html";
                 break;
             case "投诉指引":
-                location.href = "more_complaint";
+                location.href = "media/complaint.html";
                 break;
             case "合作说明":
-                location.href = "more_cooperate";
+                location.href = "media/cooperate.html";
                 break;
         }
         // location.href = "more?mediaOption=" + $(this).text();
@@ -44,24 +44,24 @@ $(function () {
     $(".singleNav").click(function () {
         switch ($(this).text()){
             case "关于我们":
-                location.href = "more_about";
+                location.href = "media/about.html";
                 break;
             case "联系我们":
-                location.href = "more_contact";
+                location.href = "media/contact.html";
                 break;
             case "用户协议":
-                location.href = "more_agreenment";
+                location.href = "media/agreenment.html";
                 break;
             case "投诉指引":
-                location.href = "more_complaint";
+                location.href = "media/complaint.html";
                 break;
             case "合作说明":
-                location.href = "more_cooperate";
+                location.href = "media/cooperate.html";
                 break;
         }
     });
     $("#loginMore").click(function () {
-        location.href = "more";
+        location.href = "media/about.html";
     });
 
     $(window).scroll(function () {
@@ -77,7 +77,6 @@ $(function () {
         if ($("#username").val() != "" && $("#password").val() != "") {
             var host = window.location.host;
             var realPath = window.location.href;
-            // alert(realPath.substr(host.length+7+4));
             $.post("user_login",
                 {
                     name: $("#username").val(),
@@ -98,7 +97,7 @@ $(function () {
         }
     });
     $("#registerOption").click(function () {
-        location.href = "user_toregister";
+        location.href = "user/toregister.html";
     });
 
     $(".userOption").click(function () {

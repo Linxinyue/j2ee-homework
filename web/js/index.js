@@ -1,115 +1,115 @@
 $(function () {
 
     $(".title").click(function () {
-        location.href = "page_indexId?id=" + $(this).parent().attr('id');
+        location.href = "article/" + $(this).parent().attr('id')+".html";
     });
     $(".tiltePicDiv").click(function () {
-        location.href = "page_indexId?id=" + $(this).parent().attr('id');
+        location.href = "article/" + $(this).parent().attr('id')+".html";
     });
 
     $(".newstLi").click(function () {
-        location.href = "page_indexId?id=" + $(this).attr('id').substr(4);
+        location.href = "article/" + $(this).attr('id').substr(4)+".html";
     });
 
     $(".comentArticleTitle").click(function () {
-        location.href = "page_indexId?id=" + $(this).attr('id').substr(4);
+        location.href = "article/" + $(this).attr('id').substr(4)+".html";
     });
 
     $(".singleEntry").click(function () {
         switch ($(this).text()) {
             case "推荐":
-                window.location = "news_index";
+                window.location = "index.html";
                 break;
             case "热点":
-                window.location = "news_remen";
+                window.location = "remen.html";
                 break;
             case "社会":
-                window.location = "news_shehui";
+                window.location = "shehui.html";
                 break;
             case "娱乐":
-                window.location = "news_yule";
+                window.location = "yule.html";
                 break;
             case "科技":
-                window.location = "news_keji";
+                window.location = "keji.html";
                 break;
             case "财经":
-                window.location = "news_caijing";
+                window.location = "caijing.html";
                 break;
             case "军事":
-                window.location = "news_junshi";
+                window.location = "junshi.html";
                 break;
             case "国际":
-                window.location = "news_guoji";
+                window.location = "guoji.html";
                 break;
             case "时尚":
-                window.location = "news_shishang";
+                window.location = "shishang.html";
                 break;
             case "探索":
-                window.location = "news_tansuo";
+                window.location = "tansuo.html";
                 break;
             case "美文":
-                window.location = "news_meiwen";
+                window.location = "meiwen.html";
                 break;
             case "历史":
-                window.location = "news_lishi";
+                window.location = "lishi.html";
                 break;
             case "故事":
-                window.location = "news_gushi";
+                window.location = "gushi.html";
                 break;
             case "游戏":
-                window.location = "news_youxi";
+                window.location = "youxi.html";
                 break;
             case "体育":
-                window.location = "news_tiyu";
+                window.location = "tiyu.html";
                 break;
         }
     });
     $(".otherEntry").click(function () {
         switch ($(this).text()) {
             case "推荐":
-                window.location = "index";
+                window.location = "index.html";
                 break;
             case "热点":
-                window.location = "news_remen";
+                window.location = "remen.html";
                 break;
             case "社会":
-                window.location = "news_shehui";
+                window.location = "shehui.html";
                 break;
             case "娱乐":
-                window.location = "news_yule";
+                window.location = "yule.html";
                 break;
             case "科技":
-                window.location = "news_keji";
+                window.location = "keji.html";
                 break;
             case "财经":
-                window.location = "news_caijing";
+                window.location = "caijing.html";
                 break;
             case "军事":
-                window.location = "news_junshi";
+                window.location = "junshi.html";
                 break;
             case "国际":
-                window.location = "news_guoji";
+                window.location = "guoji.html";
                 break;
             case "时尚":
-                window.location = "news_shishang";
+                window.location = "shishang.html";
                 break;
             case "探索":
-                window.location = "news_tansuo";
+                window.location = "tansuo.html";
                 break;
             case "美文":
-                window.location = "news_meiwen";
+                window.location = "meiwen.html";
                 break;
             case "历史":
-                window.location = "news_lishi";
+                window.location = "lishi.html";
                 break;
             case "故事":
-                window.location = "news_gushi";
+                window.location = "gushi.html";
                 break;
             case "游戏":
-                window.location = "news_youxi";
+                window.location = "youxi.html";
                 break;
             case "体育":
-                window.location = "news_tiyu";
+                window.location = "tiyu.html";
                 break;
         }
     });

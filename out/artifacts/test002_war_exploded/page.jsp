@@ -6,10 +6,15 @@
   Time: 12:46
   To change this template use File | Settings | File Templates.
 --%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
+    <base href=" <%=basePath%>">
     <meta charset="utf-8">
     <title>${session.myArticle.title}</title>
     <link rel="stylesheet" href="./style/top.css">
@@ -96,14 +101,13 @@
                     分享到：
                     <img class="commentsShare" src="./img/qzone.png"  />
                     <img class="commentsShare" src="./img/weibo.png"  />
-
                     <s:if test="#session.currentUser != null">
                         <div class="sendComment">发表</div>
                     </s:if>
                     <s:else>
                         <div class="sendCommentLogin">发表</div>
                     </s:else>
-
+                    <div class="commentTip"></div>
 
                 </div>
             </div>

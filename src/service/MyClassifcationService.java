@@ -16,44 +16,30 @@ import java.util.Objects;
  */
 public class MyClassifcationService {
 
-    public static List<Object> getClasses(){
-        Session session = null;
-        Transaction tx = null;
-        List<Object> myClassifications = null;
-        try{
-            session = HibernateUtil.getSession();
-            tx = session.beginTransaction();
-            myClassifications = session.createQuery("select classification_name from MyClassification ").list();
-            tx.commit();
-        }catch (HibernateException e) {
-            if(tx!=null)
-                tx.rollback();
-            e.printStackTrace();
-            throw e;
-        }finally{
-            HibernateUtil.closeSession();
-        }
-        return myClassifications;
-    }
-
+    /**
+     * 获取当前的栏目信息
+     * @param myUser
+     * @return
+     */
     public static List<Object> getUserClasses(MyUser myUser){
         Session session = null;
         Transaction tx = null;
         List<MyClassification> myClassifications = null;
-
         List<Object> classTitleDesc = null;
-
         try{
             session = HibernateUtil.getSession();
             tx = session.beginTransaction();
 
-            classTitleDesc = session.createQuery("select c.classification_name from MyUser u, MyClassification c, MySubscribe s " +
-                    "where c.classification_id = s.myClassification.classification_id " +
-                    "and u.user_id = s.myUser.user_id " +
-                    "and u.user_id = :id")
-                    .setInteger("id",myUser.getUser_id())
-                    .list();
-
+            if(myUser ==null){
+                classTitleDesc = session.createQuery("select c.classification_name from MyClassification c ").list();
+            }else {
+                classTitleDesc = session.createQuery("select c.classification_name from MyUser u, MyClassification c, MySubscribe s " +
+                        "where c.classification_id = s.myClassification.classification_id " +
+                        "and u.user_id = s.myUser.user_id " +
+                        "and u.user_id = :id")
+                        .setInteger("id",myUser.getUser_id())
+                        .list();
+            }
             myClassifications = session.createQuery("from MyClassification ").list();
             tx.commit();
         }catch (HibernateException e) {
@@ -76,8 +62,16 @@ public class MyClassifcationService {
                 classTitleDesc.add(myClassification.getClassification_name());
             }
         }
+//        System.out.println("NyClassifcatinService:"+classTitleDesc.size());
         return classTitleDesc;
     }
+
+    /**
+     * 判断是否是用户订阅的类
+     * @param myUser
+     * @param myClassification
+     * @return
+     */
 
     public static String  isSubClass(MyUser myUser, MyClassification myClassification){
         Session session = null;

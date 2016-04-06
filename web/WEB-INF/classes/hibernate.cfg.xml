@@ -20,8 +20,8 @@
 	<!--<property name="format_sql">true</property>-->
 
 	<!--实际用的-->
-	<mapping class="domain.MyAdmin" />
 	<mapping class="domain.MyUser" />
+	<mapping class="admindomain.MyAdmin" />
 	<mapping class="domain.UserInformation" />
 	<mapping class="domain.MySubscribe" />
 	<mapping class="domain.MyClassification" />
@@ -33,5 +33,11 @@
 	<mapping class="domain.CommentLike" />
 	<mapping class="domain.MyFollow" />
 	<mapping class="domain.Media" />
+
+	<mapping class="admindomain.LoginCount" />
+	<mapping class="admindomain.RegisterCount" />
+	<mapping class="admindomain.ReadCount" />
+	<mapping class="admindomain.RequestCount" />
+	<mapping class="admindomain.CommentCount" />
 </session-factory>
 </hibernate-configuration>

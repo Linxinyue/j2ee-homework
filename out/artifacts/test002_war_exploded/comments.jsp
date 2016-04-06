@@ -96,6 +96,5 @@
         </ul>
     </nav>
 </s:if>
-
 <script src="js/comments.js"></script>
 

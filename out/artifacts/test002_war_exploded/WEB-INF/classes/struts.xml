@@ -7,7 +7,7 @@
     <!--<constant name="struts.enable.DynamicMethodInvocation" value="true" />-->
     <package name="front" namespace="/" extends="struts-default">
         <action name="news_*" class="action.NewsAction" method="{1}">
-            <result>/index.jsp</result>
+            <result>/indexs.jsp</result>
         </action>
         <action name="page_*" class="action.PageAction" method="{1}">
             <result>/page.jsp</result>
@@ -28,10 +28,14 @@
     </package>
 
     <package name="back" namespace="/admin" extends="struts-default">
-        <action name="index" class="action.AdminAction">
-            <result>/admin/login.jsp</result>
+        <default-action-ref name="index"></default-action-ref>
+        <action name="index" class="adminaction.AdminAction" method="index">
+            <result name="error">/admin/login.jsp</result>
+            <result name="success">/admin/index.jsp</result>
         </action>
-        <action name="admin_*" class="action.AdminAction" method="{1}">
+        <action name="login" class="adminaction.AdminLoginAction" method="login">
+        </action>
+        <action name="admin_*" class="adminaction.AdminAction" method="{1}">
             <result name="index">/admin/index.jsp</result>
             <result name="article">/admin/article.jsp</result>
             <result name="comment">/admin/comment.jsp</result>
@@ -39,6 +43,19 @@
             <result name="articleAdd">/admin/articleAdd.jsp</result>
             <result name="commentAdd">/admin/commentAdd.jsp</result>
             <result name="delete">/admin/delete.jsp</result>
+            <result name="articleMod">/admin/articleMod.jsp</result>
+            <result name="error">/admin/login.jsp</result>
+        </action>
+        <action name="article_*" class="adminaction.ArticleAction" method="{1}">
+            <result>/admin/deletecontent.jsp</result>
+            <result name="modifi">/admin/articleModConent.jsp</result>
+        </action>
+
+        <action name="comment_*" class="adminaction.CommentAction" method="{1}">
+            <result>/admin/deletecontent.jsp</result>
+        </action>
+        <action name="user_*" class="adminaction.UserAction" method="{1}">
+            <result>/admin/deletecontent.jsp</result>
         </action>
     </package>
 

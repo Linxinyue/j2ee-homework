@@ -1,5 +1,6 @@
 package test;
 
+import admindomain.*;
 import domain.*;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -87,55 +88,8 @@ public class DBTest2 {
 //        return commentCount.intValue();
     }
 
-    @Test
-    public void save2emdia(){
-        Session session = null;
-        Transaction tx = null;
-        try {
-            session = HibernateUtil.getSession();
-            tx = session.beginTransaction();
 
-            Media media = new Media();
-            media.setConent("<p>\n" +
-                    "            《今日头条》支持蜘蛛协议（Robots Exclusion Protocol）“ToutiaoSpider”，同时，我们尊重所有的网络媒体，如媒体不希望内容被《今日头条》推荐，请及时邮件至\n" +
-                    "\n" +
-                    "            <a href=\"mailto:bd@toutiao.com\">bd@toutiao.com</a>\n" +
-                    "\n" +
-                    "            邮箱，或在网站页面中根据拒绝蜘蛛协议（Robots Exclusion Protocol）加注拒绝收录的标记，我们将对有异议的内容采取断开链接的做法。\n" +
-                    "        </p>\n" +
-                    "        <p></p>\n" +
-                    "        <h2>no-transform协议</h2>\n" +
-                    "        <p>转码支持的no-transform协议为如下两种形式：</p>\n" +
-                    "        <p>1、HTTP Response中显示声明 Cache-control为no-transform；</p>\n" +
-                    "        <p>2、meta标签中显示声明Cache-control为no-transform,格式为：</p>\n" +
-                    "        <p><img src=\"http://p2.pstatp.com/large/1013/6493117447\">\n" +
-                    "        </p>\n" +
-                    "        <p>如果第三方网站不希望页面被今日头条客户端转码，可在页面中添加此协议，当用户进入时，会直接跳转至原网页。</p>\n" +
-                    "\n" +
-                    "        <p></p>\n" +
-                    "        <h2>预加载技术</h2>\n" +
-                    "\n" +
-                    "        <p>今日头条为了让用户获得更好的体验，使用预加载技术极致提升用户打开文章的速度，使用户进入文章时几乎不用等待，实现“秒开”体验。</p>\n" +
-                    "\n" +
-                    "        <p>所谓预加载，是指用户在打开页面前，会预先加载文章的html、css、javascript这几部分内容。一些浏览器厂商为提高网页访问速度也同样使用此技术。比如：搜狗高速浏览器，其宣称的“智能预取，速度革命”，就是如此。</p>\n" +
-                    "\n" +
-                    "        <p>预加载技术特点：</p>\n" +
-                    "\n" +
-                    "        <p>1. 预加载只加载文本代码（html、css和javascript），不预加载图片。</p>\n" +
-                    "        <p>2. 预加载不执行代码（javascript），不影响下游网站的流量统计。</p>\n" +
-                    "        <p>3. 广告不进行预加载。 </p>\n");
-            session.save(media);
 
-            tx.commit();
-        } catch (HibernateException e) {
-            if (tx != null)
-                tx.rollback();
-            e.printStackTrace();
-            throw e;
-        } finally {
-            HibernateUtil.closeSession();
-        }
-    }
 
     @Test
     public void testLike(){
@@ -220,6 +174,321 @@ public class DBTest2 {
                     session.delete(mySubscribe);
                 }
             }
+            tx.commit();
+        }catch (HibernateException e) {
+            if(tx!=null)
+                tx.rollback();
+            e.printStackTrace();
+            throw e;
+        }finally{
+            HibernateUtil.closeSession();
+        }
+    }
+
+
+    @Test
+    public void save2myadmin(){
+        Session session = null;
+        Transaction tx = null;
+        List<MySubscribe> mySubscribes;
+        try{
+            session = HibernateUtil.getSession();
+            tx = session.beginTransaction();
+
+            MyAdmin myAdmin = new MyAdmin("xinyue@xinyue.com","xinyue","");
+            session.save(myAdmin);
+
+            tx.commit();
+        }catch (HibernateException e) {
+            if(tx!=null)
+                tx.rollback();
+            e.printStackTrace();
+            throw e;
+        }finally{
+            HibernateUtil.closeSession();
+        }
+    }
+
+    @Test
+    public void setDate(){
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+        System.out.println(date);
+    }
+
+    @Test
+    public  void register(){
+        String name = "xixi";
+        String password = "haha";
+        Session session = null;
+        Transaction tx = null;
+        MyUser myUser = new MyUser();
+        try{
+            session = HibernateUtil.getSession();
+            tx = session.beginTransaction();
+            //取数据
+            myUser.setName(name);
+            myUser.setPassword(password);
+            session.save(myUser);
+
+            tx.commit();
+        }catch (HibernateException e) {
+            if(tx!=null)
+                tx.rollback();
+            e.printStackTrace();
+            throw e;
+        }finally{
+            HibernateUtil.closeSession();
+        }
+        System.out.println(myUser.getUser_id());
+    }
+
+    @Test
+    public  void getCount(){
+        Session session = null;
+        Transaction tx = null;
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2016,3,1);
+        Date date0 = calendar.getTime();
+        calendar.set(2016,4,1);
+        Date date1 = calendar.getTime();
+        List<RequestCount> requestCounts;
+        try{
+            session = HibernateUtil.getSession();
+            tx = session.beginTransaction();
+
+            requestCounts = session.createQuery("" +
+                    "from RequestCount " +
+                    "where request_date between :start and :end")
+                    .setDate("start",date0)
+                    .setDate("end",date1)
+                    .list();
+
+            tx.commit();
+        }catch (HibernateException e) {
+            if(tx!=null)
+                tx.rollback();
+            e.printStackTrace();
+            throw e;
+        }finally{
+            HibernateUtil.closeSession();
+        }
+        System.out.println("date0:"+date0);
+        System.out.println("date1:"+date1);
+
+       /* for (RequestCount req:
+                requestCounts) {
+            System.out.println("-----------------------------");
+            System.out.println(req.getRequest_date());
+        }*/
+        System.out.println(requestCounts.size());
+    }
+    @Test
+    public  void save2request(){
+        Session session = null;
+        Transaction tx = null;
+        try{
+            session = HibernateUtil.getSession();
+            tx = session.beginTransaction();
+
+            Calendar calendar = Calendar.getInstance();
+
+            for (int i = 0; i < 244; i++) {
+                int day = (int)(Math.random()*7+25);
+                calendar.set(2016,2,day);
+                Date date = calendar.getTime();
+
+                RequestCount requestCount = new RequestCount();
+                int classid = (int)(Math.random()*14+1);
+                requestCount.setMyClassification(session.get(MyClassification.class,1));
+                requestCount.setRequest_date(date);
+                session.save(requestCount);
+
+                RegisterCount registerCount = new RegisterCount();
+                int userId = (int)(Math.random()*100+1);
+                registerCount.setMyUser(session.get(MyUser.class,userId));
+                registerCount.setRegister_date(date);
+                session.save(registerCount);
+
+                LoginCount loginCount = new LoginCount();
+                loginCount.setLogin_date(date);
+                loginCount.setMyUser(session.get(MyUser.class,userId));
+                session.save(loginCount);
+
+                ReadCount readCount = new ReadCount();
+                readCount.setRead_date(date);
+                int articleId = (int)(Math.random()*1010+1);
+                readCount.setMyArticle(session.get(MyArticle.class,articleId));
+
+                CommentCount commentCount = new CommentCount();
+                commentCount.setLogin_date(date);
+                commentCount.setMyComment(session.get(MyComment.class,userId));
+                session.save(commentCount);
+
+                System.out.println(date);
+            }
+            tx.commit();
+        }catch (HibernateException e) {
+            if(tx!=null)
+                tx.rollback();
+            e.printStackTrace();
+            throw e;
+        }finally{
+            HibernateUtil.closeSession();
+        }
+    }
+
+    @Test
+    public  void getCount2(){
+        Session session = null;
+        Transaction tx = null;
+        Calendar calendar = Calendar.getInstance();
+        Date date1 = calendar.getTime();
+        calendar.set(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)-7);
+        Date date0 = calendar.getTime();
+        Number number;
+        try{
+            session = HibernateUtil.getSession();
+            tx = session.beginTransaction();
+
+            number = (Number) session.createQuery("select count(*) " +
+                    "from RequestCount " +
+                    "where request_date between :start and :end")
+                    .setDate("start",date0)
+                    .setDate("end",date1)
+                    .uniqueResult();
+
+            tx.commit();
+        }catch (HibernateException e) {
+            if(tx!=null)
+                tx.rollback();
+            e.printStackTrace();
+            throw e;
+        }finally{
+            HibernateUtil.closeSession();
+        }
+        System.out.println("date0:"+date0);
+        System.out.println("date1:"+date1);
+
+        System.out.println(number.intValue());
+    }
+
+    @Test
+    public void getWeekDay(){
+        Session session = null;
+        Transaction tx = null;
+        Calendar calendar = Calendar.getInstance();
+        Date date1 = calendar.getTime();
+
+        List<Object> numbers = new ArrayList<>();
+        try{
+            session = HibernateUtil.getSession();
+            tx = session.beginTransaction();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+            for (int i = 0; i < 7; i++){
+                calendar.set(year,month, day- i);
+                Date date0 = calendar.getTime();
+                Object tempNumber = session.createQuery("select count(request_date) " +
+                        "from RequestCount " +
+                        "where request_date between :start and :end " +
+                        "group by request_date")
+                        .setDate("start",date0)
+                        .setDate("end",date0)
+                        .uniqueResult();
+                if (tempNumber != null){
+                    numbers.add(tempNumber);
+                    System.out.println(tempNumber.toString());
+                }else {
+                    numbers.add(0);
+                }
+                System.out.println(date0);
+            }
+            tx.commit();
+        }catch (HibernateException e) {
+            if(tx!=null)
+                tx.rollback();
+            e.printStackTrace();
+            throw e;
+        }finally{
+            HibernateUtil.closeSession();
+        }
+    }
+
+    @Test
+    public void testDeleteArticle(){
+        Session session = null;
+        Transaction tx = null;
+        int id = 101;
+
+        try{
+            session = HibernateUtil.getSession();
+            tx = session.beginTransaction();
+
+            List<ArticleLike> articleLikes = session.createQuery("from ArticleLike a where a.myArticle.article_id = :id").setInteger("id", id).list();
+
+            if (articleLikes != null){
+                for (ArticleLike article:articleLikes){
+                    session.delete(article);
+                }
+            }
+
+            List<ArticleDisLike> articleDisLikes = session.createQuery("from ArticleDisLike d where d.myArticle.article_id = :id ").setInteger("id", id).list();
+
+            if (articleDisLikes != null){
+                for (ArticleDisLike articleDisLike:articleDisLikes){
+                    session.delete(articleDisLike);
+                }
+            }
+
+
+            List<MyCollocation> myCollocations = session.createQuery("from MyCollocation d where d.myArticle.article_id = :id ").setInteger("id", id).list();
+
+            if (myCollocations != null){
+                for (MyCollocation myCollocation:myCollocations){
+                    session.delete(myCollocation);
+                }
+            }
+
+            List<ReadCount> readCounts = session.createQuery("from ReadCount d where d.myArticle.article_id = :id ").setInteger("id", id).list();
+
+            if (readCounts != null){
+                for (ReadCount readCount:readCounts){
+                    session.delete(readCount);
+                }
+            }
+
+            List<MyComment> comments = session.createQuery("from MyComment d where d.myArticle.article_id = :id ").setInteger("id", id).list();
+
+            if (comments != null){
+                for (MyComment comment:comments){
+                    session.delete(comment);
+                }
+            }
+
+            session.delete(session.get(MyArticle.class,id));
+            tx.commit();
+        }catch (HibernateException e) {
+            if(tx!=null)
+                tx.rollback();
+            e.printStackTrace();
+            throw e;
+        }finally{
+            HibernateUtil.closeSession();
+        }
+    }
+
+    @Test
+    public void testDelteUser(){
+        Session session = null;
+        Transaction tx = null;
+
+        try{
+            session = HibernateUtil.getSession();
+            tx = session.beginTransaction();
+
             tx.commit();
         }catch (HibernateException e) {
             if(tx!=null)

@@ -1,11 +1,4 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: sangzhenya
-  Date: 2016/4/3
-  Time: 21:55
-  To change this template use File | Settings | File Templates.
---%>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -160,7 +153,6 @@
                         <i class="fa fa-file-text"></i>
                       </span>
                                     <!-- checkbox -->
-                                    <!-- todo text -->
                                     <span class="text">Design a nice theme</span>
                                     <!-- Emphasis label -->
                                     <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
@@ -256,7 +248,6 @@
                         <i class="fa fa-file "></i>
                       </span>
                                     <!-- checkbox -->
-                                    <!-- todo text -->
                                     <span class="text">Design a nice theme</span>
                                     <!-- Emphasis label -->
                                     <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>

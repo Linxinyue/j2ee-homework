@@ -19,7 +19,7 @@ public class MoreAction extends ActionSupport{
     public String about(){
         Media media = MediaService.getMedia(1);
         httpSession.setAttribute("media",media);
-        System.out.println(media.getConent());
+//        System.out.println(media.getConent());
         return SUCCESS;
     }
     public String contact(){

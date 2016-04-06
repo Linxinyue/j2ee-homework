@@ -31,8 +31,6 @@
     <!-- iCheck -->
     <link rel="stylesheet" href="adminJS/plugins/iCheck/square/blue.css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -45,13 +43,13 @@
     </div><!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
-        <form action="adminJS/index2.html" method="post">
+        <form  method="post" onSubmit="return loginNow()">
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="email" name="adminName" class="form-control" placeholder="Email" id="adminName" value="xinyue@xinyue.com">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" name="adminPassword" class="form-control" placeholder="Password" id="adminPassword" value="xinyue">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
@@ -92,6 +90,27 @@
             increaseArea: '20%' // optional
         });
     });
+    function loginNow() {
+        if ($("#username").val() != "" && $("#password").val() != "") {
+            $.post("admin/login",
+                    {
+                        adminName: $("#adminName").val(),
+                        adminPassword: $("#adminPassword").val(),
+                    },
+                    function (data, status) {
+                        // alert("数据：" + data + "\n状态：" + status);
+                        if (status&&data=="success"){
+                            location.href="admin/admin_index?"+Math.random();
+                        }else {
+                            alert("用户名或密码错误！");
+                        }
+                    });
+            // $("#loginNow").submit();
+        } else {
+            alert("用户名或密码为空！");
+        }
+        return false;
+    }
 </script>
 </body>
 </html>

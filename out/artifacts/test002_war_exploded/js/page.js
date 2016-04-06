@@ -36,7 +36,8 @@ $(function () {
                     // alert(status);
                     if(status){
                         $(".commentsText").val("");
-                        alert("评论成功，审查后显示！！！")
+                        $('.commentTip').text('评论成功，审核后显示！！');
+                        setInterval("$('.commentTip').text('')",3000);
                     }
                 });
         } else {
