@@ -1,0 +1,223 @@
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pageletNav {
+  height: 70px;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 7px;
+  background-color: #F8F8F8;
+  color: #9E9E9E;
+  border-bottom: 2px solid #FF9800;
+}
+.navLogo {
+  float: left;
+  height: 80%;
+  width: 20%;
+}
+.logo {
+  height: 100%;
+}
+.navTitle {
+  float: left;
+  width: 30%;
+  height: 100%;
+}
+.homedynamic {
+  height: 100%;
+  float: right;
+  margin-right: 5%;
+  cursor: pointer;
+}
+.navSubtitle {
+  height: 100%;
+  width: 30%;
+  float: left;
+}
+.loginmore {
+  padding-top: 4%;
+  float: right;
+  margin-right: 5%;
+  cursor: pointer;
+}
+
+
+.moreOptions{
+  position: absolute;
+  margin-left: -20px;
+  transition: border 0.5s ease;
+}
+.moreOption{
+  width: 80px;
+  line-height: 0;
+  text-align: center;
+  background-color: #fafafa;
+  opacity: 0;
+  height: 0;
+  transition: height 0.5s ease, opacity 0.5s ease, line-height 0.5s ease;
+}
+.loginmore:hover .moreOptions{
+  border: 1px solid #eaeaea;
+}
+.loginmore:hover .moreOptions ul .moreOption{
+  height: 40px;
+  opacity: 1;
+  line-height: 40px;
+}
+.moreOption:hover{
+  background-color: #efefef;
+}
+
+
+.userOptions{
+  margin-top: 40px;
+  position: absolute;
+  transition: border 0.5s ease;
+}
+.userOption{
+  width: 80px;
+  line-height: 0;
+  text-align: center;
+  background-color: #fafafa;
+  opacity: 0;
+  height: 0;
+  transition: height 0.5s ease, opacity 0.5s ease, line-height 0.5s ease;
+}
+
+.loginmore:hover .userOptions{
+  border: 1px solid #eaeaea;
+}
+
+
+.userOption:hover{
+  background-color: #efefef;
+}
+.loginmore:hover .userOptions ul .userOption{
+  height: 40px;
+  opacity: 1;
+  line-height: 40px;
+}
+
+
+
+.headerUserPhoto{
+  margin-top: 8px;
+  float: left;
+  width: 20px;
+  border-radius: 10px;
+}
+.userName{
+  float: left;
+  clear: right;
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+
+
+/*登录界面*/
+.shadow{
+  top: 0px;
+  position: fixed;
+  z-index: 2;
+  background-color: #000;
+  opacity:0.8;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.login{
+  /*display: none;*/
+  z-index: 3;
+  position: fixed;
+  width: 400px;
+  background-color: #fff;
+  top: -500px;
+  padding-bottom: 40px;
+  left: 35%;
+  padding-top: 1%;
+  padding-left: 1%;
+}
+.loginTitle{
+  font-size: 14pt;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  width: 70%;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 20px;
+}
+.loginContain{
+  width: 270px;
+  margin-left: 20%;
+  margin-top: 10px;
+}
+#loginUser{
+  margin-top: 40px;
+}
+.loginInput{
+  outline: none;
+  border: none;
+  height: 30px;
+  width: 180px;
+  border-bottom: 1px solid #eaeaea;
+  border-right: 1px solid #eaeaea;
+  border-top: 1px solid #eaeaea;
+}
+.loginIcons{
+  height: 30px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-left: 1px solid #eaeaea;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  float: left;
+  clear: left;
+}
+#password{
+  border-right: none;
+  width: 160px;
+}
+.openEye{
+  height: 30px;
+  width: 20px;
+  border-right: 1px solid #eaeaea;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  padding-top: 5px;
+  float: right;
+  margin-right: 65px;
+  cursor: pointer;
+  /*background-color: red;*/
+}
+.loginOptions{
+  width: 100px;
+  height: 30px;
+  float: left;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 30px;
+  background-color: #FF9800;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 3%;
+  border-radius: 5px;
+}
+.loginOptions:hover{
+  background-color: #FACB21;
+}
+#registerOption{
+  margin-left: 20%;
+  clear: left;
+}
+.remeberme{
+  margin-left: 22%;
+  margin-top: 10px;
+}
+.checkremeberme{
+  float: left;
+  margin-left: 5px;
+}

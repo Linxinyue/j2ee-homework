@@ -1,0 +1,10 @@
+
+#myCustom .row{
+    margin-top: 10px;
+}
+#myCustom input{
+    height:40px;
+}
+.form-control{
+    resize: none;
+}

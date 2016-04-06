@@ -1,0 +1,494 @@
+
+/*分类导航栏*/
+.mianBar {
+  width: 100%;
+  background: #FF9800;
+  height: 50px;
+}
+.mianOptions {
+  width: 70%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.entries {
+  width: 60%;
+  height: 100%;
+  float: left;
+}
+.singleEntry {
+  float: left;
+  height: 100%;
+  width: 20%;
+  font-size: 16pt;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+.singleEntry:hover{
+  background:#FFC107;
+}
+
+
+.others {
+  width: 60%;
+  float: right;
+  height: 0;
+  opacity: 0;
+  padding-bottom: 10px;
+  background-color: #FF9800;
+  -webkit-transition: height 0.5s,opacity 0.5s;
+}
+
+#choose:hover ~ .others{
+  opacity: 1;
+  height: 150px;
+}
+
+.otherEntry {
+  width: 30%;
+  cursor: pointer;
+  margin-left: 3%;
+  height: 0;
+  opacity: 0;
+  margin-top: 3px;
+  float: left;
+  font-size: 13pt;
+  text-align: center;
+  line-height: 45px;
+  border-radius: 5px;
+  overflow: hidden;
+  -webkit-transition: height 0.5s,opacity 0.5s;
+}
+.otherEntry:hover{
+  background:#FFC107;
+}
+#choose:hover ~ .others .otherEntry{
+  opacity: 1;
+  height: 45px;
+}
+
+.others:hover{
+  height: 150px;
+  opacity: 1;
+}
+.others:hover .otherEntry{
+  height: 45px;
+  line-height: 45px;
+  opacity: 1;
+}
+
+.displayEntry{
+  width: 80%;
+  float: left;
+}
+
+
+
+.search {
+  width: 40%;
+  height: 100%;
+  float: left;
+}
+.inputDiv {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 30px;
+  margin-top: 10px;
+}
+.inputSearch {
+  width: 90%;
+  height: 100%;
+  outline: none;
+  /*border-radius: 10px;*/
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: #eaeaea;
+  border: 1px solid #eaeaea;
+  padding-left: 5%;
+  float: left;
+}
+.searchIcon {
+  height: 30px;
+  padding-top: 5px;
+  float: left;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #eaeaea;
+  width: 10%;
+  cursor: pointer;
+}
+.mianPage {
+  margin-top: 20px;
+  width: 70%;
+  margin-left: 15%;
+  position: absolute;
+  z-index: -1;
+}
+.articles {
+  float: left;
+  width: 70%;
+  padding-bottom: 50px;
+}
+.otherExtend {
+  float: left;
+  width: 280px;
+  height: 100px;
+}
+.singlePicArticle {
+  width: 100%;
+  height: 110px;
+  clear: both;
+  /*background: red;*/
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+.tiltePicDiv {
+  float: left;
+  width: 110px;
+  height: 110px;
+  margin-right: 2%;
+  overflow: hidden;
+}
+.titlePic {
+  margin-top: 10px;
+  height: 90px;
+  cursor: pointer;
+}
+.title h4{
+  cursor: pointer;
+  font-weight: bold;
+}
+.title:hover {
+  color: #FF9800;
+}
+.content {
+  height: 45px;
+  overflow: hidden;
+  font-size: 10pt;
+  color: #4F5157;
+  line-height: 20px;
+}
+.fct {
+  margin-top: 5px;
+  float: left;
+  font-size: 11pt;
+  cursor: default;
+  color: #99999C;
+}
+.lds {
+  float: right;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/*天气*/
+
+.weather {
+  width: 100%;
+  /*background: #eaeaea;*/
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  float: left;
+}
+#checkCity{
+  margin-left: -15px;
+  margin-top: -10px;
+  visibility: hidden;
+}
+.weatherCity {
+  float: left;
+  cursor: pointer;
+  color: #406599;
+}
+.weatherWind {
+  margin-left: 10px;
+  float: left;
+}
+.weatherPM {
+  float: left;
+  margin-left: 10px;
+  background-color: #FF9800;
+  padding: 3px;
+  font-size: 9pt;
+  color: #fff;
+  border-radius: 7px;
+}
+
+
+#today {
+  clear: left;
+}
+.weatherDay {
+  width: 25%;
+  height: 80px;
+  margin-top: 10px;
+  margin-left: 10px;
+  float: left;
+  /*display: none;*/
+}
+.dayTitle {
+  color: #99A5C2;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.dayWeather {
+  width: 100%;
+  padding-left: 25%;
+}
+.weatherIcon {
+  width: 70%;
+}
+.dayTempera {
+  text-align: center;
+  margin-top: 10px;
+}
+#city0{
+  visibility: hidden;
+}
+#city1{
+  visibility: hidden;
+}
+.choosCity {
+  display: none;
+  float: left;
+  margin-top: 10px;
+  width: 100%;
+  height: 80px;
+  /*background: red;*/
+  /*border: 1px solid #eaeaea;*/
+}
+.province{
+  width: 120px;
+  float: left;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.provinceName{
+  cursor: pointer;
+  margin-top: 10px;
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  width: 80px;
+  padding-left: 10px;
+  border: 1px solid #eaeaea;
+}
+.provinceIcon{
+  padding-left: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  padding-top: 7px;
+  height: 30px;
+  width: 27px;
+  float: left;
+  background-color: #F4F5F6;
+}
+.otherCitys{
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  padding-top: 10px;
+  float: left;
+  margin-top: -5px;
+  width: 200px;
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  padding-bottom: 10px;
+  display: none;
+}
+#otherCitysRight{
+  margin-left: -92px;
+  display: none;
+}
+.otherCity{
+  font-size: 14px;
+  width: 32%;
+  margin-left: 1%;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  text-align: center;
+}
+.otherCity:hover{
+  background-color: #f4f4f4;
+}
+
+#changeCity{
+  width: 107px;
+  margin-left: 10px;
+}
+#cancleCity{
+  width: 107px;
+  margin-left: 20px;
+}
+
+/*时事要闻*/
+
+.newest {
+  float: left;
+  margin-top: 20px;
+}
+.newestTilte {
+  padding-left: 20px;
+  border-left: 5px solid #FF9800;
+}
+.newestLiDiv {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 20px;
+}
+.newstLi {
+  line-height: 20px;
+  height: 50px;
+  width: 250px;
+  cursor: pointer;
+}
+.newstLi:hover{
+  color: #FF9800;
+}
+.title{
+  overflow: hidden;
+  margin-bottom: 5px;
+  height:30px;
+}
+/*版权*/
+
+.copyRight {
+  margin-left: 10px;
+  float: left;
+  margin-top: 20px;
+  width: 90%;
+  padding: 5% 5%;
+  background-color: #F5F6F7;
+}
+.copyRightSingle {
+  font-size: 10pt;
+  line-height: 15px;
+  color: #999999;
+}
+
+
+/*精彩评论*/
+.bestComment{
+  width: 280px;
+  float: left;
+  /*background-color: yellow;*/
+}
+.singleComent{
+  float: left;
+  width: 90%;
+  margin-top: 10px;
+  margin-left: 5%;
+  padding-bottom: 10px;
+}
+.nameCount{
+  float: left;
+  width: 100%;
+}
+.commentHead{
+  width: 30px;
+  float: left;
+  border-radius: 15px;
+}
+.commentHeadDiv{
+  width: 30px;
+  cursor: pointer;
+  float: left;
+}
+.commentName{
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+  /*background-color: red;*/
+  float: left;
+  margin-left: 5px;
+}
+.praiseCount{
+  float: right;
+  padding-top: 5px;
+}
+.realNumber{
+  float: right;
+  margin-left: 5px;
+}
+.comentConent{
+  float: left;
+  margin-top: 10px;
+  padding: 2%;
+  background-color: #FBFBFB;
+  border: 1px solid #E7E7E7;
+  color: #6B6B6B;
+}
+.comentOf{
+  float: left;
+  margin-top: 10px;
+  color: #9E9E9E;
+}
+.comentArticleTitle{
+  padding: 3%;
+  color: #4F5157;
+  line-height: 20px;
+  cursor: pointer;
+}
+.comentArticleTitle:hover{
+  color: #FF9800;
+}
+.pagination{
+  margin-top: 50px;
+}
+
+@media (max-width: 1300px){
+  .mianBar{
+    width: 100%;
+  }
+  .mianPage{
+    width: 95%;
+    margin-left: 2%;
+    min-width: 650px;
+  }
+  .articles{
+    width: 95%;
+  }
+  .otherExtend{
+    width: 95%;
+  }
+  .newstLi{
+    width: 95%;
+  }
+  .newest{
+    width: 95%;
+  }
+  .bestComment{
+    width: 95%;
+  }
+  .weather{
+    margin-bottom: 10%;
+  }
+  .mianOptions{
+    width: 90%;
+  }
+}
+.agree{
+   height: 20px;
+   margin-left: 5px;
+ }
+.useragree{
+  height: 20px;
+  margin-left: 5px;
+}
+
+.commentAgree{
+  cursor: pointer;
+  width: 20px;
+}
+.pleaseLogin{
+  cursor: pointer;
+  width: 20px;
+}
+
