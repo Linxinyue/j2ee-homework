@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!--<constant name="struts.enable.DynamicMethodInvocation" value="true" />-->
+    <package name="front" namespace="/" extends="struts-default">
+        <action name="news_*" class="action.NewsAction" method="{1}">
+            <result>/index.jsp</result>
+        </action>
+        <action name="page_*" class="action.PageAction" method="{1}">
+            <result>/page.jsp</result>
+            <result name="comment">/comments.jsp</result>
+        </action>
+        <action name="more_*" class="action.MoreAction" method="{1}">
+            <result>/other/about.jsp</result>
+        </action>
+        <action name="user_*" class="action.LoginAction" method="{1}">
+            <result>/index.html</result>
+            <result name="loginOut">/index.html</result>
+            <result name="register">/register.jsp</result>
+            <result name="prePage" type="redirect">${#session.realPath}</result>
+        </action>
+        <action name="like_*" class="action.LikeColloAction" method="{1}">
+        </action>
+
+    </package>
+
+    <package name="back" namespace="/admin" extends="struts-default">
+        <action name="index" class="action.AdminAction">
+            <result>/admin/login.jsp</result>
+        </action>
+        <action name="admin_*" class="action.AdminAction" method="{1}">
+            <result name="index">/admin/index.jsp</result>
+            <result name="article">/admin/article.jsp</result>
+            <result name="comment">/admin/comment.jsp</result>
+            <result name="user">/admin/user.jsp</result>
+            <result name="articleAdd">/admin/articleAdd.jsp</result>
+            <result name="commentAdd">/admin/commentAdd.jsp</result>
+            <result name="delete">/admin/delete.jsp</result>
+        </action>
+    </package>
+
+
+</struts>
